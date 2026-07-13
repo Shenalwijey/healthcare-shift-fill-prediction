@@ -41,6 +41,31 @@ Additional Evaluation:
 
 ---
 
+## Project Architecture
+
+```
+aug_train.csv
+      │
+      ▼
+Data Preprocessing & Feature Engineering
+      │
+      ▼
+healthcare_shift_dataset.csv
+      │
+      ▼
+Random Forest Model Training
+      │
+      ▼
+shift_fill_model.pkl
+      │
+      ▼
+FastAPI REST API
+      │
+      ▼
+Prediction Response
+
+```
+
 ## Technologies Used
 
 - Python
