@@ -79,7 +79,7 @@ Prediction Response
 
 ---
 
-## Setup Instructions
+## Local Setup Instructions
 
 1. Install the required dependencies:
 
@@ -100,6 +100,38 @@ uvicorn main:app --reload
 ```
 http://127.0.0.1:8000/docs
 ```
+
+---
+
+## Docker Deployment
+
+### Build the Docker image
+
+```bash
+docker build -t healthcare-shift-api .
+```
+
+### Run the Docker container
+
+```bash
+docker run -p 8000:8000 healthcare-shift-api
+```
+
+### Access the API
+
+Swagger UI:
+
+```
+http://localhost:8000/docs
+```
+
+API Root:
+
+```
+http://localhost:8000/
+```
+
+The Docker container packages the FastAPI application together with all required dependencies, allowing the project to run consistently across different environments.
 
 ---
 
@@ -143,6 +175,18 @@ The project provides a FastAPI REST API.
 - Improve model performance through hyperparameter tuning.
 - Compare additional machine learning algorithms.
 - Deploy the API to a cloud platform.
+
+---
+
+## Scalability Considerations
+
+Although this project is designed as a portfolio demonstration, several improvements could support larger-scale deployments:
+
+- Deploy the API to cloud platforms such as AWS, Azure, or Google Cloud Platform.
+- Store the trained model using a model registry instead of a local `.pkl` file.
+- Add authentication and authorization to secure API access.
+- Store prediction logs in a database for monitoring and analysis.
+- Use container orchestration technologies such as Kubernetes to support multiple API instances under higher workloads.
 
 ---
 
