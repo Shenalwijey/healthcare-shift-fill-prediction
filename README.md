@@ -76,6 +76,7 @@ Prediction Response
 - FastAPI
 - Uvicorn
 - Joblib
+- GitHub Actions (CI)
 
 ---
 
@@ -132,6 +133,26 @@ http://localhost:8000/
 ```
 
 The Docker container packages the FastAPI application together with all required dependencies, allowing the project to run consistently across different environments.
+
+---
+
+## Continuous Integration (CI)
+
+This project uses GitHub Actions to automatically validate the application whenever changes are pushed to the `main` branch or a pull request is created.
+
+The CI workflow performs the following checks:
+
+- Checks out the repository.
+- Sets up Python 3.11.
+- Installs project dependencies.
+- Verifies the Python source code for syntax errors.
+- Builds the Docker image to ensure the application can be containerized successfully.
+
+The workflow configuration is located in:
+
+```text
+.github/workflows/ci.yml
+```
 
 ---
 
