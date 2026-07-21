@@ -43,10 +43,13 @@ def predict_shift(data: ShiftInput):
     input_data = input_data[feature_columns]
 
     fill_probability = model.predict_proba(input_data)[0][1]
+    prediction = model.predict(input_data)[0]
+    prediction_label = "Filled" if prediction == 1 else "Not Filled"
 
     difficulty_score = round((1 - fill_probability) * 100)
 
     return {
-        "fill_probability": round(float(fill_probability), 2),
-        "difficulty_score": difficulty_score
-    }
+    "prediction": prediction_label,
+    "fill_probability": round(float(fill_probability), 2),
+    "difficulty_score": difficulty_score
+}
